@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mi tratamiento</title>
+  <meta name="description" content="Seguimiento del tratamiento de dermatología y hábitos diarios.">
+  <meta name="theme-color" content="#f3f6f5" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1110" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Tratamiento">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app" aria-live="polite"></main>
+
+  <nav class="tabbar" aria-label="Secciones">
+    <button class="tab" data-tab="hoy" aria-current="page">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg>
+      <span>Hoy</span>
+    </button>
+    <button class="tab" data-tab="etapas">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M7 12h11M5 17h7"/></svg>
+      <span>Etapas</span>
+    </button>
+    <button class="tab" data-tab="historial">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></svg>
+      <span>Historial</span>
+    </button>
+    <button class="tab" data-tab="ajustes">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h8M17 7h2M5 17h2M11 17h8"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg>
+      <span>Ajustes</span>
+    </button>
+  </nav>
+
+  <dialog id="timer" class="sheet" aria-labelledby="timer-title">
+    <h2 id="timer-title">Keomed · dejar actuar</h2>
+    <div class="timer-ring">
+      <svg viewBox="0 0 120 120" aria-hidden="true">
+        <circle class="track" cx="60" cy="60" r="52"/>
+        <circle class="bar" cx="60" cy="60" r="52"/>
+      </svg>
+      <output id="timer-left">3:00</output>
+    </div>
+    <p id="timer-msg" class="muted center">Aplica el champú y pulsa Empezar.</p>
+    <div class="row gap">
+      <button class="btn primary grow" id="timer-toggle">Empezar</button>
+      <button class="btn" id="timer-reset">Reiniciar</button>
+    </div>
+    <button class="btn ghost full" id="timer-close">Cerrar</button>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <input type="file" id="import-file" accept="application/json,.json" hidden>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
